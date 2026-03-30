@@ -366,6 +366,6 @@ export const COLLECTIONS = {
 export const DISPLAY = {
   graphics: 'featured',
   mograph: 'featured',
-  //photo: 'featured',
+  photo: 'featured',
   video: 'grid',
 };
