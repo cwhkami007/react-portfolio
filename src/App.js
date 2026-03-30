@@ -73,7 +73,7 @@ function getJournalismPubs() {
 
 const ALBUM_IDS = [
   'graphics',
-  //'photo',
+  'photo',
   'mograph',
   'video',
   'journalism',
@@ -81,7 +81,7 @@ const ALBUM_IDS = [
 ];
 const ALBUM_LABELS = {
   graphics: 'Graphics',
-  //photo: 'Photo',
+  photo: 'Photo',
   mograph: 'Mograph',
   video: 'Video / Edits',
   journalism: 'Journalism',

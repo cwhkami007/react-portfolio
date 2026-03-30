@@ -153,27 +153,43 @@ export const MEDIA = {
   // Example: { id: 'your_cloudinary_id_here', title: 'Shot Title', collection: 'Street', year: '2025', tags: ['Canon'] },
   // prettier-ignore
   photo: [
-    // --- Street ---
-    // { id: 'YOUR_CLOUDINARY_ID', title: 'Your Title', collection: 'Street', year: '2025', tags: ['Canon'] },
-
-    // --- Sports ---
-    // { id: 'YOUR_CLOUDINARY_ID', title: 'Your Title', collection: 'Sports', year: '2025', tags: ['Nikon'] },
-
-    // --- Portrait ---
-    // { id: 'YOUR_CLOUDINARY_ID', title: 'Your Title', collection: 'Portrait', year: '2025', tags: ['Portrait'] },
+    { id: 'gaskins1_2_uih0k1', title: 'Caleb Gaskins', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'ftl1_qaxtne', title: 'Free Throw Line Close Up', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'luhi1_upxsya', title: 'Throne Action Shot 12', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'lockhart3_nrbtp3', title: 'Lockhart Free Throw Line', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'dunk1_o0bxgk', title: 'Caleb Gaskins Dunk', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action1', title: 'Throne Action Shot 1', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action2', title: 'Throne Action Shot 2', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action3', title: 'Throne Action Shot 3', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action4', title: 'Throne Action Shot 4', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action5', title: 'Throne Action Shot 5', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action6', title: 'Throne Action Shot 6', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action7', title: 'Throne Action Shot 7', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action8', title: 'Throne Action Shot 8', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action9', title: 'Throne Action Shot 9', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action10', title: 'Throne Action Shot 10', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'action11', title: 'Throne Action Shot 11', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'logo1', title: 'Shirts & Skins Compression Back', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'boyschamp3_mjemdi', title: 'Boys Champs', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'compression1_ynccni', title: 'Shirts & Skins Compression Action', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'ftl1_2_frne6z', title: 'Free Throw Line 1', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
+    { id: 'ftl2_2_tpwqjk', title: 'Free Throw Line 2', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
   ],
-
+  
   // ── VIDEO / EDITS ──────────────────────────────────────────
   // Videos with sound from Cloudinary. type must be 'video'.
   // 'muted' controls whether to autoplay silently vs. play with sound in the card view.
   // prettier-ignore
   video: [
     // Example:
-    { id: 'openingday', title: 'Rucker Opening Day Promo', collection: 'Edits', year: '2025', tags: ['Edits'], type: 'video' },
-    { id: 'swervebend', title: 'Rucker Monster Energy Promo', collection: 'Edits', year: '2025', tags: ['Edits'], type: 'video' },
-    { id: 'knicksrocnation', title: 'Rucker Park Takeover Day', collection: 'Edits', year: '2025', tags: ['Edits'], type: 'video' },
-    { id: 'bobbitoreturn', title: 'Bobbito Garcia Narrates Rucker Opening Day', collection: 'Edits', year: '2025', tags: ['Edits'], type: 'video' },
-    { id: 'jdsportsshoot', title: 'JD Sports Jersey Reveal', collection: 'Edits', year: '2025', tags: ['Edits'], type: 'video' },
+    { id: 'openingday', title: 'Rucker Opening Day Promo', collection: 'Rucker Park', year: '2025', tags: ['Edits'], type: 'video' },
+    { id: 'swervebend', title: 'Rucker Monster Energy Promo', collection: 'Rucker Park', year: '2025', tags: ['Edits'], type: 'video' },
+    { id: 'knicksrocnation', title: 'Rucker Park Takeover Day', collection: 'Rucker Park', year: '2025', tags: ['Edits', 'Videography', 'Canon EOS Rebel T7'], type: 'video' },
+    { id: 'bobbitoreturn', title: 'Bobbito Garcia Narrates Rucker Opening Day', collection: 'Rucker Park', year: '2025', tags: ['Edits'], type: 'video' },
+    { id: 'jdsportsshoot', title: 'JD Sports Jersey Reveal', collection: 'Rucker Park', year: '2025', tags: ['Edits', 'Videography', 'Canon EOS Rebel T7'], type: 'video' },
+    { id: 'coachesclinicNEW', title: 'The Throne Coaches Clinic', collection: 'Shirts & Skins', year: '2026', tags: ['Edits', 'Videography', 'Canon EOS Rebel T7'], type: 'video' },
+    { id: 'thronemixNEW', title: 'The Throne Tournament Mix', collection: 'Shirts & Skins', year: '2026', tags: ['Edits', 'Videography', 'Canon EOS Rebel T7'], type: 'video' },
+    { id: 'stephenavideo', title: 'Stephen A. Smith Recap', collection: 'Seton Hall', year: '2026', tags: ['Edits', 'Videography', 'Canon EOS Rebel T7'], type: 'video' },
     // { id: 'YOUR_CLOUDINARY_VIDEO_ID', title: 'Edit Title', collection: 'Vlogs', year: '2025', tags: ['Premiere'], type: 'video' },
   ],
 };
@@ -343,7 +359,8 @@ export const COLLECTIONS = {
   // Add photo collections here as you populate the photo array:
   //photo: ['Sports', 'Other'],
   // Add video collections here as you populate the video array:
-  video: ['Edits'],
+  video: ['Rucker Park', 'Shirts & Skins', 'Seton Hall',],
+  photo: ['Rucker Park', 'Shirts & Skins'] //'Product', 'Nature'],
 };
 
 export const DISPLAY = {
