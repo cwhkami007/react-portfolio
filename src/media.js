@@ -148,9 +148,6 @@ export const MEDIA = {
   ],
 
   // ── PHOTO ──────────────────────────────────────────────────
-  // Add photo entries here. Each entry needs: id (Cloudinary public ID), title, collection, year, tags
-  // Collections defined in COLLECTIONS.photo below
-  // Example: { id: 'your_cloudinary_id_here', title: 'Shot Title', collection: 'Street', year: '2025', tags: ['Canon'] },
   // prettier-ignore
   photo: [
     { id: 'gaskins1_2_uih0k1', title: 'Caleb Gaskins', collection: 'Shirts & Skins', year: '2026', tags: ['Photo', 'Canon EOS Rebel T7'] },
@@ -177,11 +174,8 @@ export const MEDIA = {
   ],
   
   // ── VIDEO / EDITS ──────────────────────────────────────────
-  // Videos with sound from Cloudinary. type must be 'video'.
-  // 'muted' controls whether to autoplay silently vs. play with sound in the card view.
   // prettier-ignore
   video: [
-    // Example:
     { id: 'openingday', title: 'Rucker Opening Day Promo', collection: 'Rucker Park', year: '2025', tags: ['Edits'], type: 'video' },
     { id: 'swervebend', title: 'Rucker Monster Energy Promo', collection: 'Rucker Park', year: '2025', tags: ['Edits'], type: 'video' },
     { id: 'knicksrocnation', title: 'Rucker Park Takeover Day', collection: 'Rucker Park', year: '2025', tags: ['Edits', 'Videography', 'Canon EOS Rebel T7'], type: 'video' },
@@ -195,14 +189,7 @@ export const MEDIA = {
 };
 
 // ── JOURNALISM ─────────────────────────────────────────────────
-// Each article entry:
-//   title      — headline / display text
-//   url        — full link to the article
-//   publication — name of the outlet (must match a key in JOURNALISM_PUBLICATIONS)
-//   date       — display date string, e.g. 'March 2026'
-//   description — optional one-line blurb
 export const JOURNALISM = [
-  // Example entries — replace or remove:
   {
     title:
       'SHU basketball NCAA Tournament hopes likely crushed after heartbreaking 69-57 loss to DePaul',
@@ -221,7 +208,7 @@ export const JOURNALISM = [
   },
   {
     title:
-      'The two-headed giant: Determining the trajectory of this year’s BIG EAST conference',
+      'The two-headed giant: Determining the trajectory of the BIG EAST conference',
     url: 'https://www.thesetonian.com/article/2025/10/the-two-headed-giant-determining-the-trajectory-of-this-years-big-east-conference',
     publication: 'The Setonian',
     date: 'October 2025',
@@ -236,7 +223,7 @@ export const JOURNALISM = [
   },
   {
     title:
-      'Seton Hall Sports Poll reports women’s stars are most recognizable players in college basketball',
+      'Seton Hall Sports Poll reports women stars are most recognizable players in college basketball',
     url: 'https://www.thesetonian.com/article/2025/03/seton-hall-sports-poll-reports-womens-stars-are-most-recognizable-players-in-college-basketball',
     publication: 'Seton Hall Sports Poll',
     date: 'March 2025',
@@ -265,38 +252,15 @@ export const JOURNALISM = [
     date: 'Novemeber 2024',
     description: 'Xaivian Lee, Jeremy Lin, and the future of Asian basketball',
   },
-
-  // Add more articles following the same shape:
-  // { title: '', url: '', publication: '', date: '', description: '' },
 ];
 
-// Publication logos — key must match the `publication` field above.
-// logoId: Cloudinary image public ID for the publication logo.
-// If no logo is available yet, leave logoId as '' and a text fallback will render.
+// Publication logos
 export const JOURNALISM_PUBLICATIONS = {
   'Publication Name': { logoId: '', color: '#ffffff' },
-  // Add more publications:
-  // 'The Athletic':   { logoId: 'theathletic_logo_xxxx', color: '#e63946' },
-  // 'ESPN':           { logoId: 'espn_logo_xxxx',        color: '#d50032' },
 };
 
 // ── PODCASTS ──────────────────────────────────────────────────
-// Each podcast entry:
-//   title       — episode/show title
-//   embedUrl    — PodBean embed URL (src of their iframe)
-//                 From PodBean: Share → Embed → copy the src="" value
-//   show        — show name (used as collection/tab label)
-//   date        — display date
-//   description — optional episode blurb
 export const PODCASTS = [
-  // Example — replace with your real PodBean embed URLs:
-  // {
-  //   title: 'Episode 1: Intro',
-  //   embedUrl: 'https://www.podbean.com/media/player/XXXXXXXX?from=pb6admin',
-  //   show: 'Your Show Name',
-  //   date: 'January 2026',
-  //   description: 'What this episode was about.',
-  // },
   {
     title:
       'Episode 1: Percentage of What Exactly? WNBA Pay Equity and CBA Negotiations ft. Professor Charles Grantham',
@@ -356,16 +320,14 @@ export const PODCASTS = [
 export const COLLECTIONS = {
   graphics: ['Double Bang Designs', 'Rucker Park'],
   mograph: ['NBA', 'WNBA', 'BIG EAST', 'Other'],
-  // Add photo collections here as you populate the photo array:
-  //photo: ['Sports', 'Other'],
-  // Add video collections here as you populate the video array:
-  video: ['Rucker Park', 'Shirts & Skins', 'Seton Hall',],
-  photo: ['Rucker Park', 'Shirts & Skins'] //'Product', 'Nature'],
+  video: ['Rucker Park', 'Shirts & Skins', 'Seton Hall'],
+  photo: ['Rucker Park', 'Shirts & Skins'],
 };
 
 export const DISPLAY = {
   graphics: 'featured',
   mograph: 'featured',
-  photo: 'featured',
+  // ── CHANGED: photo and video now default to grid with portrait cards ──
+  photo: 'grid',
   video: 'grid',
 };

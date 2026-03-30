@@ -158,6 +158,7 @@ const css = `
   .strip::-webkit-scrollbar{display:none;}
   .strip-item{flex:0 0 540px;aspect-ratio:16/9;position:relative;overflow:hidden;cursor:none;}
 
+  /* ── STANDARD CARD (landscape 4:3) ── */
   .card{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:none;background:var(--bg2);}
   .card img,.card video,.card iframe{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,filter .4s;filter:brightness(.8);}
   .card:hover img,.card:hover video{transform:scale(1.05);filter:brightness(1);}
@@ -168,8 +169,18 @@ const css = `
   .card-tags{margin-top:4px;display:flex;gap:4px;flex-wrap:wrap;}
   .tag{font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border:1px solid #444;color:#777;border-radius:1px;}
 
-  /* ── VIDEO / EDITS CARD ── */
-  .video-card{position:relative;overflow:hidden;aspect-ratio:16/9;cursor:none;background:var(--bg2);}
+  /* ── PORTRAIT CARD (3:4) — used for Photo and Video/Edits ── */
+  .card-portrait{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:none;background:var(--bg2);}
+  .card-portrait img,.card-portrait video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,filter .4s;filter:brightness(.8);}
+  .card-portrait:hover img,.card-portrait:hover video{transform:scale(1.05);filter:brightness(1);}
+  .card-portrait .card-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:18px;pointer-events:none;}
+  .card-portrait:hover .card-over{opacity:1;}
+
+  /* ── Portrait grid — narrower columns so portraits look natural ── */
+  .grid-portrait{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px;padding:24px 40px 80px;}
+
+  /* ── VIDEO / EDITS CARD (portrait) ── */
+  .video-card{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:none;background:var(--bg2);}
   .video-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
   .video-card:hover video{transform:scale(1.03);}
   .video-card .card-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:18px;pointer-events:none;}
@@ -265,6 +276,7 @@ const css = `
     .contact-links { gap: 20px; flex-direction: column; }
     .podcast-grid{grid-template-columns:1fr;}
     .journalism-grid{grid-template-columns:1fr;}
+    .grid-portrait{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));}
   }
 `;
 
@@ -292,7 +304,7 @@ function MediaEl({ item }) {
   return <img src={img(item.cloudId)} alt={item.title} loading="lazy" />;
 }
 
-// Video card for Video/Edits — 16:9, muted preview, opens lightbox with sound
+// Video card for Video/Edits — portrait 3:4, muted preview, opens lightbox with sound
 function VideoEditCard({ item, onClick }) {
   return (
     <div
@@ -325,10 +337,36 @@ function VideoEditCard({ item, onClick }) {
   );
 }
 
+// Standard landscape card
 function Card({ item, onClick, className = 'card' }) {
   return (
     <div
       className={`${className} cursor-target`}
+      onClick={() => onClick && onClick(item)}
+    >
+      <MediaEl item={item} />
+      <div className="card-over">
+        <div>
+          <div className="card-col">{item.collection || item.year}</div>
+          <div className="card-title">{item.title}</div>
+          <div className="card-tags">
+            {item.tags.map((t) => (
+              <span key={t} className="tag">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Portrait card — used for the Photo section
+function PortraitCard({ item, onClick }) {
+  return (
+    <div
+      className="card-portrait cursor-target"
       onClick={() => onClick && onClick(item)}
     >
       <MediaEl item={item} />
@@ -548,8 +586,16 @@ export default function Portfolio() {
 
   const isSpecial = activeAlbum === 'journalism' || activeAlbum === 'podcasts';
   const isVideo = activeAlbum === 'video';
+  const isPhoto = activeAlbum === 'photo';
+
+  // Photo and video are always grid; graphics/mograph respect DISPLAY + toggle
   const mode =
-    isSpecial || isVideo ? null : modeOvr || DISPLAY[activeAlbum] || 'featured';
+    isSpecial || isVideo || isPhoto
+      ? 'grid'
+      : modeOvr || DISPLAY[activeAlbum] || 'featured';
+
+  // Only show the mode toggle for albums that support featured/strip layouts
+  const showModeToggle = !isSpecial && !isVideo && !isPhoto;
 
   const allItems = isSpecial ? [] : buildItems(activeAlbum);
   const items = isSpecial
@@ -661,8 +707,8 @@ export default function Portfolio() {
             <div className="section-eyebrow">Selected Work</div>
             <div className="section-title">{ALBUM_LABELS[activeAlbum]}</div>
           </div>
-          {/* Mode toggle only for grid-based media albums */}
-          {!isSpecial && !isVideo && (
+          {/* Mode toggle only for graphics and mograph */}
+          {showModeToggle && (
             <div className="mode-toggle">
               {Object.entries({ grid: '⊞', featured: '⊡', strip: '⊟' }).map(
                 ([m, icon]) => (
@@ -702,7 +748,7 @@ export default function Portfolio() {
         {/* ── PODCASTS ── */}
         {activeAlbum === 'podcasts' && <PodcastsSection />}
 
-        {/* ── VIDEO / EDITS ── */}
+        {/* ── VIDEO / EDITS — portrait grid ── */}
         {isVideo && (
           <>
             <div className="col-tabs">
@@ -730,12 +776,7 @@ export default function Portfolio() {
                 No videos yet — add entries to the video array in media.js
               </div>
             ) : (
-              <div
-                className="grid"
-                style={{
-                  gridTemplateColumns: 'repeat(auto-fill,minmax(400px,1fr))',
-                }}
-              >
+              <div className="grid-portrait">
                 {items.map((item) => (
                   <VideoEditCard
                     key={item._id}
@@ -748,8 +789,42 @@ export default function Portfolio() {
           </>
         )}
 
-        {/* ── STANDARD MEDIA ALBUMS: graphics, photo, mograph ── */}
-        {!isSpecial && !isVideo && (
+        {/* ── PHOTO — portrait grid ── */}
+        {isPhoto && (
+          <>
+            <div className="col-tabs">
+              {(COLLECTIONS.photo || []).map((c) => (
+                <button
+                  key={c}
+                  className={`col-tab cursor-target${
+                    activeCol === c ? ' on' : ''
+                  }`}
+                  onClick={() => setActiveCol(c)}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+            {items.length === 0 ? (
+              <div style={{ padding: '48px 40px', color: '#333' }}>
+                Empty collection
+              </div>
+            ) : (
+              <div className="grid-portrait">
+                {items.map((item) => (
+                  <PortraitCard
+                    key={item._id}
+                    item={item}
+                    onClick={setLightbox}
+                  />
+                ))}
+              </div>
+            )}
+          </>
+        )}
+
+        {/* ── STANDARD MEDIA ALBUMS: graphics, mograph ── */}
+        {!isSpecial && !isVideo && !isPhoto && (
           <>
             <div className="col-tabs">
               {(COLLECTIONS[activeAlbum] || []).map((c) => (
@@ -986,4 +1061,3 @@ export default function Portfolio() {
     </>
   );
 }
-
