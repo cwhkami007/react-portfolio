@@ -268,7 +268,7 @@ const css = `
   .footer span{font-size:10px;color:var(--gray);letter-spacing:1px;}
 
   @media(max-width:900px){
-    .hero{grid-template-columns:1fr;padding-top:90px;}
+    .hero{grid-template-columns:1fr;padding-top:90px;min-height:auto;padding-bottom:48px;}
     .hero-right{display:none;}
     .about{grid-template-columns:1fr;gap:40px;}
     .feat-layout{grid-template-columns:1fr;}
