@@ -363,7 +363,16 @@ export const PODCASTS = [
       'https://www.podbean.com/player-v2/?i=8grja-1a674d2-pb&from=pb6admin&share=1&download=1&rtl=0&fonts=Arial&skin=3267a3&font-color=auto&logo_link=episode_page&btn-skin=f6f6f6',
     show: 'Hall or Nothing',
     date: '2026',
-    description: 'Ep. 6',
+    description: 'Ep. 6.1',
+  },
+  {
+    title:
+      'Hall or Nothing 20th Anniversary Episode Part 2: Can the World Baseball Classic Replace the All Star Game? Disruptions in Modern Baseball',
+    embedUrl:
+      'https://www.podbean.com/player-v2/?i=ns7p8-1a806d2-pb&from=pb6admin&share=1&download=1&rtl=0&fonts=Arial&skin=3267a3&font-color=auto&logo_link=episode_page&btn-skin=f6f6f6',
+    show: 'Hall or Nothing',
+    date: '2026',
+    description: 'Ep. 6.2',
   },
 ];
 
